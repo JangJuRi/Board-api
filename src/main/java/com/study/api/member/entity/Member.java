@@ -17,8 +17,7 @@ import java.util.List;
 public class Member extends BaseEntity {
     @Id
     @GeneratedValue
-    @Column(name = "member_id")
-    private Long id;
+    private Long memberId;
     private String accountId;
     private String name;
     private String password;

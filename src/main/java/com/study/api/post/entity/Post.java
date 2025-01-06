@@ -15,9 +15,9 @@ import lombok.Setter;
 public class Post extends BaseEntity {
 
     @Id @GeneratedValue
-    @Column(name = "post_id")
-    private Long id;
+    private Long postId;
     private String title;
+    private String subTitle;
     private String content;
 
     @ManyToOne(fetch = FetchType.LAZY)

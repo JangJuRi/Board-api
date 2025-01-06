@@ -1,6 +1,6 @@
 package com.study.api.post.controller;
 
-import com.study.api.post.dto.PostListResponseDto;
+import com.study.api.post.projection.PostsWithMembers;
 import com.study.api.post.service.PostService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +15,7 @@ public class PostController {
     private final PostService postService;
 
     @GetMapping("/post/list/load")
-    public ResponseEntity<List<PostListResponseDto>> loadAllPost() throws Exception {
+    public ResponseEntity<List<PostsWithMembers>> loadAllPost() throws Exception {
         return ResponseEntity.ok(postService.loadAllPost());
     }
 }

@@ -1,6 +1,6 @@
 package com.study.api.post.service;
 
-import com.study.api.post.dto.PostListResponseDto;
+import com.study.api.post.projection.PostsWithMembers;
 import com.study.api.post.repository.PostRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,7 +12,7 @@ import java.util.List;
 public class PostService {
     private final PostRepository postRepository;
 
-    public List<PostListResponseDto> loadAllPost() {
-        return postRepository.findAllPosts();
+    public List<PostsWithMembers> loadAllPost() {
+        return postRepository.findAllBy();
     }
 }

@@ -1,5 +1,7 @@
 package com.study.api.common.entity;
 
+import com.study.api.common.util.LocalDateTimeConverter;
+import jakarta.persistence.Convert;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
@@ -15,10 +17,12 @@ import java.time.LocalDateTime;
 @EntityListeners(AuditingEntityListener.class)
 public class BaseEntity {
     @CreatedDate
-    @DateTimeFormat(pattern = "yyyy-MM-dd/HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @Convert(converter = LocalDateTimeConverter.class)
     private LocalDateTime createdDate;
 
     @LastModifiedDate
-    @DateTimeFormat(pattern = "yyyy-MM-dd/HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @Convert(converter = LocalDateTimeConverter.class)
     private LocalDateTime modifiedDate;
 }

@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 @AllArgsConstructor
@@ -29,5 +30,10 @@ public class PostService {
         Member member = memberRepository.findById(Long.valueOf(1)).get(); // 로그인 구현 전이라 임시
         post.setMember(member);
         postRepository.save(post);
+    }
+
+    public void removePost(Map<String, Long> params) throws Exception {
+        Long postId = params.get("postId");
+        postRepository.deleteById(postId);
     }
 }

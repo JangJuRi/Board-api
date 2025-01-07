@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @AllArgsConstructor
@@ -28,5 +29,10 @@ public class PostController {
     @PostMapping("/post/save")
     public void savePost(@RequestBody Post post) throws Exception {
         postService.savePost(post);
+    }
+
+    @PostMapping("/post/remove")
+    public void removePost(@RequestBody Map<String, Long> params) throws Exception {
+        postService.removePost(params);
     }
 }

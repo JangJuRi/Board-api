@@ -1,6 +1,7 @@
 package com.study.api.common.entity;
 
 import com.study.api.common.util.LocalDateTimeConverter;
+import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
@@ -17,6 +18,7 @@ import java.time.LocalDateTime;
 @EntityListeners(AuditingEntityListener.class)
 public class BaseEntity {
     @CreatedDate
+    @Column(updatable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Convert(converter = LocalDateTimeConverter.class)
     private LocalDateTime createdDate;

@@ -25,7 +25,7 @@ public class PostService {
         return postRepository.findByPostId(postId);
     }
 
-    public void addPost(Post post) throws Exception {
+    public void savePost(Post post) throws Exception {
         Member member = memberRepository.findById(Long.valueOf(1)).get(); // 로그인 구현 전이라 임시
         post.setMember(member);
         postRepository.save(post);

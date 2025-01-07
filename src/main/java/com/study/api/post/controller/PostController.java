@@ -25,8 +25,8 @@ public class PostController {
         return ResponseEntity.ok(postService.loadPostDetail(postId));
     }
 
-    @PostMapping("/post/add")
-    public void addPost(@RequestBody Post post) throws Exception {
-        postService.addPost(post);
+    @PostMapping("/post/save")
+    public void savePost(@RequestBody Post post) throws Exception {
+        postService.savePost(post);
     }
 }

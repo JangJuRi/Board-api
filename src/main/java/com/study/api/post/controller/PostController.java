@@ -5,10 +5,10 @@ import com.study.api.post.projection.PostInfo;
 import com.study.api.post.projection.PostsWithMembers;
 import com.study.api.post.service.PostService;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -17,8 +17,9 @@ public class PostController {
     private final PostService postService;
 
     @GetMapping("/post/list/load")
-    public ResponseEntity<List<PostsWithMembers>> loadAllPost() throws Exception {
-        return ResponseEntity.ok(postService.loadAllPost());
+    public ResponseEntity<Page<PostsWithMembers>> loadAllPost(@RequestParam("pageNumber") int pageNumber,
+                                                              @RequestParam("pageSize") int pageSize) throws Exception {
+        return ResponseEntity.ok(postService.loadAllPost(pageNumber, pageSize));
     }
 
     @GetMapping("/post/detail/load/{postId}")

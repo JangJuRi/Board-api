@@ -7,9 +7,11 @@ import com.study.api.post.projection.PostInfo;
 import com.study.api.post.projection.PostsWithMembers;
 import com.study.api.post.repository.PostRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Map;
 
 @Service
@@ -18,8 +20,9 @@ public class PostService {
     private final PostRepository postRepository;
     private final MemberRepository memberRepository;
 
-    public List<PostsWithMembers> loadAllPost() throws Exception {
-        return postRepository.findAllBy();
+    public Page<PostsWithMembers> loadAllPost(int pageNumber, int pageSize) throws Exception {
+        Pageable pageable = PageRequest.of(pageNumber, pageSize);
+        return postRepository.findAllBy(pageable);
     }
 
     public PostInfo loadPostDetail(Long postId) throws Exception {

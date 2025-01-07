@@ -3,9 +3,11 @@ package com.study;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import org.springframework.data.web.config.EnableSpringDataWebSupport;
 
 @SpringBootApplication
-@EnableJpaAuditing
+@EnableJpaAuditing // BaseEntity 처리
+@EnableSpringDataWebSupport(pageSerializationMode = EnableSpringDataWebSupport.PageSerializationMode.VIA_DTO) // 페이징 처리
 public class StudyApplication {
 
 	public static void main(String[] args) {

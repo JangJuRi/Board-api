@@ -1,7 +1,7 @@
 package com.study.api.member.service;
 
 import com.study.api.member.entity.Member;
-import com.study.api.member.projection.MemberSession;
+import com.study.api.member.projection.MemberLoginInfo;
 import com.study.api.member.repository.MemberRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,7 +19,7 @@ public class MemberService {
         memberRepository.save(member);
     }
 
-    public MemberSession login(Member member) {
+    public MemberLoginInfo login(Member member) {
         String accountId = member.getAccountId();
         String password = member.getPassword();
         return memberRepository.findMemberByAccountIdAndPassword(accountId, password);

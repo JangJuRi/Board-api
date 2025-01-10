@@ -1,6 +1,6 @@
 package com.study.api.member.projection;
 
-public interface MemberSession {
+public interface MemberLoginInfo {
     Long getMemberId();
     String getName();
 }

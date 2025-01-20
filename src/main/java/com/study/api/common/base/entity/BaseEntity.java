@@ -1,6 +1,6 @@
-package com.study.api.common.entity;
+package com.study.api.common.base.entity;
 
-import com.study.api.common.util.LocalDateTimeConverter;
+import com.study.util.LocalDateTimeConverter;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.EntityListeners;

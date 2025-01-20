@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Map;
 
@@ -28,8 +29,8 @@ public class PostController {
     }
 
     @PostMapping("/post/save")
-    public void savePost(@RequestBody Post post) throws Exception {
-        postService.savePost(post);
+    public void savePost(@ModelAttribute Post post, @RequestPart("imageFile") MultipartFile file) throws Exception {
+        postService.savePost(post, file);
     }
 
     @PostMapping("/post/remove")

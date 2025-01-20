@@ -1,6 +1,6 @@
 package com.study.api.member.entity;
 
-import com.study.api.common.entity.BaseEntity;
+import com.study.api.common.base.entity.BaseEntity;
 import com.study.api.post.entity.Post;
 import jakarta.persistence.*;
 import lombok.AccessLevel;

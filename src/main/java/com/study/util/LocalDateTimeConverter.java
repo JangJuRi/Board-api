@@ -1,4 +1,4 @@
-package com.study.api.common.util;
+package com.study.util;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
